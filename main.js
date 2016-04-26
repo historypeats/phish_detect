@@ -21,9 +21,10 @@ var check_failure = function() {
 	raw_email = gmail.get.email_source(id),
 	spoof = /=fail/.test(raw_email);
 	if(spoof) {
-		$("body").prepend('<div class="phish_detect"><div class="modal fade" id="popupModal" tabindex="-1" role="dialog"> <div class="modal-dialog"> <div class="modal-content"> <div class="modal-header"> <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> <h4 class="modal-title">Modal title</h4> </div><div class="modal-body"> <p>One fine body&hellip;</p></div><div class="modal-footer"> <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> <button type="button" class="btn btn-primary">Save changes</button> </div></div></div></div></div>');
-		$("#popupModal").modal('show');	
-		console.log('This could be a phishing email!');
+		$("body").append('<div class="phish_detect"> <div class="modal fade" id="popupModal" tabindex="-1" role="dialog"> <div class="modal-dialog"> <div class="modal-content"> <div class="phish_detect modal-header"> <h4 class=" modal-title">Phish Detect Warning</h4> </div><div class="modal-body"> <p>Phish Detect has detected that the email sender has been spoofed. It is possible that this is a phishing email. Please be careful when dealing with the contents of the email, such as clicking links or following shady actions such as responding with a password.</p></div><div class="modal-footer"> <button type="button" class=" btn btn-default" data-dismiss="modal">Close</button></div></div></div></div></div>');
+
+			$("#popupModal").modal('show');	
+			console.log('This could be a phishing email!');
 	}
 };
 
